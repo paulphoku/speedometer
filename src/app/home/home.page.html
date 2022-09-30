@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Speedometer
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-row>
+    <ion-col style="background-color: #009B82;">
+      <br>
+      <br>
+      <!-- speed gauge -->
+      <ngx-gauge type="arch" [value]="speed" [append]="speedometer_options.AppendText" [min]="0"
+        [max]="160" [markers]="speedometer_options.markers" [size]="speedometer_options.size"
+        [thresholds]="speedometer_options.threshold" [thick]="10" [margin]="18">
+      </ngx-gauge>
+    </ion-col>
+  </ion-row>
+  <br />
+
+  <ion-row>
+    <ion-col class="text-center">
+      <ion-label>Top speed : {{topspeed}}km/h</ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+
+    <ion-col class="text-center">
+      <ion-label>Distance : {{distance}}km</ion-label>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="center" slot="fixed">
+  <ion-fab-button color="danger" (click)="reset()">
+    <ion-icon name="refresh-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
